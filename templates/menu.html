@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Canteen Menu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Canteen Menu</h2>
+
+    <div class="row">
+
+        <!-- ITEM CARD TEMPLATE -->
+        {% set items = [
+            ('Dosa',30,'dosa.jpg'),
+            ('Idli',20,'idli.jpg'),
+            ('Samosa',15,'samosa.jpg'),
+            ('Sandwich',25,'sandwich.jpg'),
+            ('Vada',15,'vada.jpg'),
+            ('Bonda',15,'bonda.jpg'),
+            ('Pakoda',15,'pakoda.jpg'),
+            ('Murukku',10,'murukku.jpg'),
+            ('Pongal',30,'pongal.jpg'),
+            ('Poori',30,'poori.jpg'),
+            ('Parotta',30,'parotta.jpg'),
+            ('Briyani',50,'briyani.jpg'),
+            ('Fried Rice',40,'friedrice.jpg'),
+            ('Noodles',40,'noodles.jpg'),
+            ('Ice Cream',25,'icecream.jpg'),
+            ('Tea',10,'tea.jpg'),
+            ('Coffee',15,'coffee.jpg'),
+            ('Lassi',25,'lassi.jpg')
+        ] %}
+
+        {% for name, price, img in items %}
+        <div class="col-md-3 col-sm-6">
+            <div class="card shadow-sm">
+                <img src="{{ url_for('static', filename='images/' + img) }}" class="card-img-top">
+
+                <div class="card-body text-center">
+                    <h6>{{ name }}</h6>
+                    <p class="fw-bold">₹{{ price }}</p>
+
+                    <form method="POST" action="/order">
+                        <input type="hidden" name="food" value="{{ name }}">
+                        <input type="hidden" name="price" value="{{ price }}">
+
+                        <select name="payment" class="form-select mb-2" required>
+    <option value="">Payment</option>
+    <option value="online">Online</option>
+    <option value="cash">Cash on delivery</option>
+</select>
+        
+
+                        <button class="btn btn-success btn-sm w-100">
+                            Order
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

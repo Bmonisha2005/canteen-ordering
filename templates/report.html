@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sales Report</title>
+    <style>
+        body { font-family: Arial; background:#f4f6f9; padding:20px; }
+        h1 { text-align:center; }
+
+        .section {
+            background:white;
+            padding:20px;
+            margin:20px 0;
+            border-radius:8px;
+            box-shadow:0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width:100%;
+            border-collapse:collapse;
+            margin-top:10px;
+        }
+
+        th, td {
+            border:1px solid #ddd;
+            padding:8px;
+            text-align:center;
+        }
+
+        th { background:#2c3e50; color:white; }
+
+        .back-btn {
+            padding:8px 12px;
+            background:#3498db;
+            color:white;
+            text-decoration:none;
+            border-radius:5px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Smart Canteen - Sales Report</h1>
+
+<!-- DAY WISE -->
+<div class="section">
+    <h2>📅 Today Sales</h2>
+    <p><strong>Total Revenue:</strong> ₹ {{ day_revenue }}</p>
+    <p><strong>Total Orders:</strong> {{ day_orders }}</p>
+
+    <h3>Products Sold Today</h3>
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Date</th>
+        </tr>
+        {% for item in day_items %}
+        <tr>
+            <td>{{ item[0] }}</td>
+            <td>{{ item[1] }}</td>
+            <td>{{item[2]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<!-- MONTH WISE -->
+<div class="section">
+    <h2>📆 This Month Sales</h2>
+    <p><strong>Total Revenue:</strong> ₹ {{ month_revenue }}</p>
+
+    <h3>Products Sold This Month</h3>
+    <table>
+        <tr>
+            
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Date</th>
+            
+        </tr>
+        {% for item in month_items %}
+        <tr>
+            <td>{{ item[0] }}</td>
+            <td>{{ item[1] }}</td>
+            <td>{{item[2]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<!-- YEAR WISE -->
+<div class="section">
+    <h2>📊 This Year Sales</h2>
+    <p><strong>Total Revenue:</strong> ₹ {{ year_revenue }}</p>
+
+    <h3>Products Sold This Year</h3>
+    <table>
+        <tr>
+            
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Date</th>
+        </tr>
+        {% for item in year_items %}
+        <tr>
+            <td>{{ item[0] }}</td>
+            <td>{{ item[1] }}</td>
+            <td>{{item[2]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<br>
+<a href="/dashboard" class="back-btn">⬅ Back to Dashboard</a>
+
+</body>
+</html>

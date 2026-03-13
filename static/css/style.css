@@ -1,0 +1,19 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.card img {
+    height: 180px;
+    object-fit: cover;
+}
+.hero-section {
+    height: 85vh;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.6)
+    ),
+    url("/static/images/canteen-bg.jpg");
+
+    background-size: cover;
+    background-position: center;
+}

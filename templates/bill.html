@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bill</title>
+</head>
+<body onload="window.print(); setTimeout(function(){ window.location.href='/dashboard'; }, 1000);">
+
+    <h2>SMART CANTEEN BILL</h2>
+    <hr>
+
+    <p><strong>Token:</strong> {{ order[1] }}</p>
+    <p><strong>Item:</strong> {{ order[2] }}</p>
+    <p><strong>Amount:</strong> ₹{{ order[3] }}</p>
+    <p><strong>Payment:</strong> {{ order[4] }}</p>
+
+    <hr>
+    <p>Thank you! Visit again.</p>
+
+</body>
+</html>
